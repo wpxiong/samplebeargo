@@ -34,8 +34,8 @@ func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
    log.Debug(indexForm)
    dbtran := ctx.GetDefaultDBTransaction()
    if userinfo,ok := dbtran.SimpleQuery(User{Email:indexForm.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {
+      log.Debug(userinfo)
       user := userinfo.(User)
-      log.Debug(user)
       if user.Password == indexForm.Password {
          render.RedirectTo(ctx,"/shop")
       }else {
