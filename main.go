@@ -19,10 +19,15 @@ func main() {
    app := webapp.New(&appCon,configMap)
    
    indexCtrl := &IndexControl{}
-   loginCtrl := &LoginControl{}
+   shopListControl := &ShopListControl{}
    
    app.AddRoute("/index",indexCtrl,"Index",IndexForm{})
-   app.AddRoute("/login",loginCtrl,"Login",LoginForm{})
+   app.AddRoute("/login",indexCtrl,"Login",IndexForm{})
+   app.AddRoute("/shop",shopListControl,"ShopList",ShopForm{})
+   
+   app.InitDB()
+   dbmoudle := app.GetDefaultDB()
+   InitMoudle(dbmoudle)
    
    app.Start()
    
