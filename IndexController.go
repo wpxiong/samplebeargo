@@ -30,10 +30,8 @@ func (this *IndexControl) Index(ctx *appcontext.AppContext,form interface{}){
 
 func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
    indexForm := form.(*IndexForm)
-   log.Debug(indexForm)
    dbtran := ctx.GetDefaultDBTransaction()
    if userinfo,ok := dbtran.SimpleQuery(User{Email:indexForm.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {
-      log.Debug(userinfo)
       user := userinfo.(User)
       if user.Password == indexForm.Password {
          request := ctx.Request.HttpRequest
