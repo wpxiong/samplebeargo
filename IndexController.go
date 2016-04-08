@@ -5,6 +5,7 @@ import (
   "github.com/wpxiong/beargo/controller"
   "github.com/wpxiong/beargo/appcontext"
   "github.com/wpxiong/beargo/render"
+  "github.com/wpxiong/beargo/form"
 )
 
 func init() {
@@ -14,6 +15,7 @@ func init() {
 type  IndexForm struct{
    Email string
    Password string
+   form.BaseForm
 }
 
 type IndexControl struct {
@@ -39,6 +41,8 @@ func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
       if user.Password == indexForm.Password {
          render.RedirectTo(ctx,"/shop")
       }else {
+         log.Debug("TestError")
+         ctx.SetError("PasswordError","password is not correct")
          render.RedirectTo(ctx,"/index")
       }
    } else {
