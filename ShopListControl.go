@@ -4,6 +4,8 @@ import (
   "github.com/wpxiong/beargo/log"
   "github.com/wpxiong/beargo/controller"
   "github.com/wpxiong/beargo/appcontext"
+  "github.com/wpxiong/beargo/session"
+  "github.com/wpxiong/beargo/render"
 )
 
 func init() {
@@ -11,8 +13,8 @@ func init() {
 }
 
 type  ShopForm struct{
-   UserName  string
-   Password  string
+   UserId    int
+   
 }
 
 type ShopListControl struct {
@@ -20,8 +22,18 @@ type ShopListControl struct {
 }
 
 func (this *ShopListControl) Before(ctx *appcontext.AppContext,form interface{}) bool {
-     log.Debug("Index Before")
-     return true
+     request := ctx.Request.HttpRequest
+     response := ctx.Writer.HttpResponseWriter
+     var sess session.Session = session.NewSession(request , *response)
+     if val,ok := sess.GetSessionValue("authuser") ;ok {
+        user := val.(User)
+        shopform := form.(*ShopForm)
+        shopform.UserId = user.UserId
+        return true
+     }else {
+        render.RedirectTo(ctx,"/index")
+        return false
+     }
 }
 
 func (this *ShopListControl) ShopList(ctx *appcontext.AppContext,form interface{}){
