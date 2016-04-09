@@ -5,7 +5,6 @@ import (
   "github.com/wpxiong/beargo/controller"
   "github.com/wpxiong/beargo/appcontext"
   "github.com/wpxiong/beargo/render"
-  "github.com/wpxiong/beargo/form"
   "github.com/wpxiong/beargo/session"
 )
 
@@ -16,7 +15,6 @@ func init() {
 type  IndexForm struct{
    Email string
    Password string
-   form.BaseForm
 }
 
 type IndexControl struct {
