@@ -27,62 +27,24 @@
     <![endif]-->
   </head>
   <body>
-    <div id="header">
-      <div class="container">
-        <div id="welcomeLine" class="row">
-	      {{template "mainbody"}}
-	    </div>
-	  </div>
-    </div>
+  <div id="header">
+   <div class="container">
+     
+	 {{template "header" . }}
 
-    <div id="mainbody">
-      
-   
-    
+   </div>
+  </div>
+
+  <div id="mainbody">
     <div class="container">
-     <div class="row portfolio">
-     {{range .ItemList}}
-     <div class="col-sm-6 col-md-3">
-      
-      <div class="thumbnail">
-        <img class="img-responsive" src="/resource/img/{{.ItemImage}}" alt="{{.AltMessage}}" data-toggle="modal" data-target="#myModal">
-        <div class="caption">
-          <p class="btn btn-default btn-xs btn-lg pull-right" rel="tooltip"><i class="fa fa-heart"></i><i
-            class="fa fa-heart"></i><i class="fa fa-heart"></i><i class="fa fa-heart-o"></i><i
-            class="fa fa-heart-o"></i></p>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-     
-    </div>
-    {{end}}
-     
-  </div>
-  
-    <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">Im the awesome cat!</h4>
-        </div>
-        <div class="modal-body">
-          <img class="img-responsive" src="/resource/img/001.jpg" alt="The awesome description">
-        </div>
-      </div>
+      {{template "mainbody" .}}  
     </div>
   </div>
- 
-	  </div>
-    </div>
    
-    
-    <div id="footer">
-      <div class="container">
-        
-	  </div>
-    </div>
+  <div id="footer">
+    <div class="container">
+	</div>
+  </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/resource/js/ie10-viewport-bug-workaround.js"></script>

@@ -7,6 +7,11 @@ import (
   "runtime"
 )
 
+type UserInfo struct {
+  UserId int `id:"true"   auto_increment:"true"`
+  Email   string  `notnull:"true"     length:"128" `
+  Password  string  `notnull:"true"     length:"128" `
+}
 
 func main() {
    log.InitLogWithLevel("Debug")
@@ -24,7 +29,7 @@ func main() {
    app.AddRoute("/index",indexCtrl,"Index",IndexForm{})
    app.AddRoute("/login",indexCtrl,"Login",IndexForm{})
    app.AddRoute("/shop",shopListControl,"ShopList",ShopForm{})
-   
+   app.RegistType(UserInfo{})
    app.InitDB()
    dbmoudle := app.GetDefaultDB()
    InitMoudle(dbmoudle)

@@ -30,7 +30,7 @@ func (this *ShopListControl) Before(ctx *appcontext.AppContext,form interface{})
      request := ctx.Request.HttpRequest
      response := ctx.Writer.HttpResponseWriter
      var sess session.Session = session.NewSession(request , *response)
-     if val,ok := sess.GetSessionValue("authuser") ;ok {
+     if val,ok := sess.GetSessionValue("authuser"); ok{
         user := val.(User)
         shopform := form.(*ShopForm)
         shopform.UserId = user.UserId
