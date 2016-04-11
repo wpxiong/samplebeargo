@@ -26,9 +26,10 @@ func main() {
    indexCtrl := &IndexControl{}
    shopListControl := &ShopListControl{}
    
-   app.AddRoute("/index",indexCtrl,"Index",IndexForm{})
-   app.AddRoute("/login",indexCtrl,"Login",IndexForm{})
-   app.AddRoute("/shop",shopListControl,"ShopList",ShopForm{})
+   app.AddRoute("/login",indexCtrl,"Index",IndexForm{})
+   app.AddRoute("/logout",indexCtrl,"Logout",IndexForm{})
+   app.AddRoute("/loging",indexCtrl,"Login",IndexForm{})
+   app.AddRoute("/index",shopListControl,"ShopList",ShopForm{})
    app.InitDB()
    dbmoudle := app.GetDefaultDB()
    InitMoudle(dbmoudle)

@@ -26,6 +26,14 @@ func (this *IndexControl) Index(ctx *appcontext.AppContext,form interface{}){
 
 }
 
+func (this *IndexControl) Logout(ctx *appcontext.AppContext,form interface{}){
+   request := ctx.Request.HttpRequest
+   response := ctx.Writer.HttpResponseWriter
+   var sess session.Session = session.NewSession(request , *response)
+   sess.DeleteSessionValue("authuser")
+   render.RedirectTo(ctx,"/login")
+}
+
 func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
    indexForm := form.(*IndexForm)
    dbtran := ctx.GetDefaultDBTransaction()
@@ -36,13 +44,14 @@ func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
          response := ctx.Writer.HttpResponseWriter
          var sess session.Session = session.NewSession(request , *response)
          sess.SaveSessionValue("authuser",user)
-         render.RedirectTo(ctx,"/shop")
+         log.Debug("success")
+         render.RedirectTo(ctx,"/index")
       }else {
          ctx.SetError("PasswordError","password is not correct")
-         render.RedirectTo(ctx,"/index")
+         render.RedirectTo(ctx,"/login")
       }
    } else {
       ctx.SetError("PasswordError","user is not registed")
-      render.RedirectTo(ctx,"/index")
+      render.RedirectTo(ctx,"/login")
    }
 }
