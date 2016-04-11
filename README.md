@@ -30,9 +30,9 @@ installation procedure:
   db_user=
   db_password=
   
-  
-  #listenPort
-  listen_port=9001  this is the webserver listen port
+  you can modify the listen port if you don't modify the listen port 
+  you will access the website with url http://localhost:9001
+  listen_port=9001  
   manager_port=9010
   manager_host=127.0.0.1
   
