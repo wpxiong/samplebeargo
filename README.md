@@ -16,8 +16,9 @@ installation procedure:
 3. source download 
    go install github.com/wpxiong/samplebeargo
 4. move to source folder 
-   cd $GOPATH/src/github.com/wpxiong/samplebeargo
-5 modify setting file
+    cd $GOPATH/src/github.com/wpxiong/samplebeargo
+
+5.  modify setting file
    modify the secion DB_CONFIG in setting.conf 
    db_user : the username of your database test 
    db_password : the password of your database test 
