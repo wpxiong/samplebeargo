@@ -19,7 +19,9 @@ func (this *ShopListControl) Before(ctx *appcontext.AppContext,form interface{})
      this.CommonController.GetCommonInfo(ctx,form)
      return true
 }
-func (this *ShopListControl) ShopList(ctx *appcontext.AppContext,form interface{}){
+
+
+func (this *ShopListControl) ShopList(ctx *appcontext.AppContext,form interface{}) {
      shopForm := form.(*ShopForm)
      ctx.SetLayoutBaseName("layout")
      log.Debug(shopForm)

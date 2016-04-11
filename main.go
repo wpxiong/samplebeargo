@@ -25,10 +25,12 @@ func main() {
    
    indexCtrl := &IndexControl{}
    shopListControl := &ShopListControl{}
-   
+   registControl := &RegistController{}
    app.AddRoute("/login",indexCtrl,"Index",IndexForm{})
    app.AddRoute("/logout",indexCtrl,"Logout",IndexForm{})
    app.AddRoute("/loging",indexCtrl,"Login",IndexForm{})
+   app.AddRoute("/regist",registControl,"Index",RegistForm{})
+   app.AddRoute("/registing",registControl,"Regist",RegistForm{})
    app.AddRoute("/index",shopListControl,"ShopList",ShopForm{})
    app.InitDB()
    dbmoudle := app.GetDefaultDB()

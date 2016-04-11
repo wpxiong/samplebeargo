@@ -68,9 +68,9 @@ func InitMoudle(moulde *moudle.Moudle) {
    moulde.InitialDB(true)
     
    //TEST CODE
-   moulde.Insert(User{Email:"wpxiong@gmail.com",Password:"1234567",UserName:"日本　二郎"}).InsertExecute()
-   moulde.Insert(User{Email:"test1@gmail.com",Password:"1234567",UserName:"日本　三郎"}).InsertExecute()
-   moulde.Insert(User{Email:"test2@gmail.com",Password:"1234567",UserName:"日本　四郎"}).InsertExecute()
+   moulde.Insert(User{Email:"wpxiong@gmail.com",Password:"1234567",UserName:"花田 太郎"}).InsertExecute()
+   moulde.Insert(User{Email:"test1@gmail.com",Password:"1234567",UserName:"花田 次郎"}).InsertExecute()
+   moulde.Insert(User{Email:"test2@gmail.com",Password:"1234567",UserName:"花田 三郎"}).InsertExecute()
    
    moulde.Insert(Items{ItemName:"test001",ItemImage:"001.jpg",ItemDescription:"001image"}).InsertExecute()
    moulde.Insert(Items{ItemName:"test002",ItemImage:"002.jpg",ItemDescription:"002image"}).InsertExecute()

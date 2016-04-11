@@ -12,13 +12,13 @@
       <li><a href="#">Page 3</a></li> 
     </ul>
      <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">
+      <li>
        {{ if .Logined }}
-         <span class="glyphicon glyphicon-user"></span> Welcome {{.LoginUserName}}
+         <a href="#"><span class="glyphicon glyphicon-user"></span> Welcome {{.LoginUserName}}</a>
        {{else}}
-         Create An Account
+         <a href="/regist">Create An Account</a>
        {{ end }}
-      </a></li>
+      </li>
       <li><a href="#"><img src="/resource/img/cart.png" alt="cart" class="shopcart"></a></li>
       <li>
       {{ if .Logined }}

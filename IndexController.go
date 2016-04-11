@@ -34,6 +34,7 @@ func (this *IndexControl) Logout(ctx *appcontext.AppContext,form interface{}){
    render.RedirectTo(ctx,"/login")
 }
 
+
 func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
    indexForm := form.(*IndexForm)
    dbtran := ctx.GetDefaultDBTransaction()
