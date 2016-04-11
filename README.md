@@ -12,7 +12,7 @@ installation procedure:
   download mysql db and install
   create database  which's name is  test 
 2. install golang  enviroment
-  https://golang.org/doc/install#install
+  https://golang.org/doc/install
 3.source download 
   go install github.com/wpxiong/samplebeargo
 4. move to source folder 
