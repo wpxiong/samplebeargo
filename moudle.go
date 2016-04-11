@@ -19,6 +19,7 @@ type Orders struct {
 
 type User struct {
   UserId int `id:"true"   auto_increment:"true"`
+  UserName    string  `notnull:"true"     length:"128" `
   Email   string  `notnull:"true"     length:"128" `
   Password  string  `notnull:"true"     length:"128" `
   OrderList []Orders  `relation_type:"onetomany" column_name:"UserId" referenced_column_name:"UserId"`
@@ -67,9 +68,9 @@ func InitMoudle(moulde *moudle.Moudle) {
    moulde.InitialDB(true)
     
    //TEST CODE
-   moulde.Insert(User{Email:"wpxiong@gmail.com",Password:"1234567"}).InsertExecute()
-   moulde.Insert(User{Email:"test1@gmail.com",Password:"1234567"}).InsertExecute()
-   moulde.Insert(User{Email:"test2@gmail.com",Password:"1234567"}).InsertExecute()
+   moulde.Insert(User{Email:"wpxiong@gmail.com",Password:"1234567",UserName:"日本　二郎"}).InsertExecute()
+   moulde.Insert(User{Email:"test1@gmail.com",Password:"1234567",UserName:"日本　三郎"}).InsertExecute()
+   moulde.Insert(User{Email:"test2@gmail.com",Password:"1234567",UserName:"日本　四郎"}).InsertExecute()
    
    moulde.Insert(Items{ItemName:"test001",ItemImage:"001.jpg",ItemDescription:"001image"}).InsertExecute()
    moulde.Insert(Items{ItemName:"test002",ItemImage:"002.jpg",ItemDescription:"002image"}).InsertExecute()

@@ -24,6 +24,7 @@ type  ShopForm struct{
 
 type ShopListControl struct {
   controller.Controller
+  CommonController
 }
 
 func (this *ShopListControl) Before(ctx *appcontext.AppContext,form interface{}) bool {
@@ -52,6 +53,7 @@ func initShopForm (ctx *appcontext.AppContext, shopform *ShopForm) {
 }
 
 func (this *ShopListControl) ShopList(ctx *appcontext.AppContext,form interface{}){
+     this.CommonController.GetCommonInfo(ctx)
      shopForm := form.(*ShopForm)
      initShopForm(ctx,shopForm)
      ctx.SetLayoutBaseName("layout")
