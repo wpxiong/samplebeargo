@@ -20,8 +20,10 @@ installation procedure:
 
 5.  modify setting file
    modify the secion DB_CONFIG in setting.conf 
+   
    db_user : the username of your database test 
-   db_password : the password of your database test 
+   db_password : the password of your database test
+
    [DB_CONFIG]
    db_session_name=mysqldb
    db_dialecttype=mysql
