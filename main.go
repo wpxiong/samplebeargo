@@ -19,7 +19,7 @@ func main() {
    
    
    configMap := InitConfig()
-   config := appcontext.AppConfigContext{Port :9001,ConfigPath : "./setting.conf"}
+   config := appcontext.AppConfigContext{ConfigPath : "./setting.conf"}
    var appCon appcontext.AppContext = appcontext.AppContext{ ConfigContext :  &config}
    app := webapp.New(&appCon,configMap)
    
@@ -34,5 +34,6 @@ func main() {
    InitMoudle(dbmoudle)
    
    app.Start()
+   webapp.StartCommanListener(app)
    
 }
