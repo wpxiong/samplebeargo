@@ -52,12 +52,12 @@ func (this *RegistController) validateRegister (ctx *appcontext.AppContext,form 
 
 
 func (this *RegistController) Before(ctx *appcontext.AppContext,form interface{}) bool {
-   log.Debug(form)
    if ctx.UrlPath == "/registing" {
       res := this.validateRegister(ctx,form)
       if !res {
+         log.Debug("xxxx")
          render.RedirectTo(ctx,"/regist")
-         return true
+         return false
       } 
    }
    return true
