@@ -1,7 +1,25 @@
-  ( function() {
-        if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-        var unit = {"calltype":"async[2]","publisher":"werewolfrex","width":728,"height":90,"sid":"Chitika Default"};
-        var placement_id = window.CHITIKA.units.length;
-        window.CHITIKA.units.push(unit);
-        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-    }());
+function AddToCart() {
+    var item_id = $('#AddButton').attr("data");
+    var data = {itemid : item_id};
+    $.ajax({
+       type: 'POST',
+       url: "/addcart",
+       contentType: 'application/json',
+       data : JSON.stringify(data),
+       dataType : 'json',
+       scriptCharset: 'utf-8',
+       success: function(msg){
+          alert( "Data Saved: " + msg );
+       }
+     });
+}
+   
+
+$(document).ready(function() {
+   $('#myModal').on('show.bs.modal', function (event) {
+      $('#myModalImage').attr("src",$(event.relatedTarget).data('whatever'));
+      $('#AddButton').attr("data",$(event.relatedTarget).data('itemid'))
+   });
+   
+
+});

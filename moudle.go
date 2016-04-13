@@ -35,6 +35,7 @@ type Items struct {
   ItemName string  `notnull:"true"     length:"256"`
   ItemDescription   string `length:"256" `
   ItemImage   string  `notnull:"true"     length:"64"`
+  ItemLank        int `notnull:"true"`
 }
 
 type ItemsOptions struct {
@@ -72,18 +73,18 @@ func InitMoudle(moulde *moudle.Moudle) {
    moulde.Insert(UserInfo{Email:"test1@gmail.com",Password:"1234567",UserName:"花田 次郎"}).InsertExecute()
    moulde.Insert(UserInfo{Email:"test2@gmail.com",Password:"1234567",UserName:"花田 三郎"}).InsertExecute()
    
-   moulde.Insert(Items{ItemName:"test001",ItemImage:"001.jpg",ItemDescription:"001image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test002",ItemImage:"002.jpg",ItemDescription:"002image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test003",ItemImage:"003.jpg",ItemDescription:"003image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test004",ItemImage:"004.jpg",ItemDescription:"004image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test005",ItemImage:"005.jpg",ItemDescription:"005image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test006",ItemImage:"006.jpg",ItemDescription:"006image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test007",ItemImage:"007.jpg",ItemDescription:"007image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test008",ItemImage:"008.jpg",ItemDescription:"008image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test009",ItemImage:"009.jpg",ItemDescription:"009image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test010",ItemImage:"0010.jpg",ItemDescription:"010image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test011",ItemImage:"0011.jpg",ItemDescription:"011image"}).InsertExecute()
-   moulde.Insert(Items{ItemName:"test012",ItemImage:"0012.jpg",ItemDescription:"012image"}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test001",ItemImage:"001.jpg",ItemDescription:"001image",ItemLank:2}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test002",ItemImage:"002.jpg",ItemDescription:"002image",ItemLank:3}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test003",ItemImage:"003.jpg",ItemDescription:"003image",ItemLank:4}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test004",ItemImage:"004.jpg",ItemDescription:"004image",ItemLank:5}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test005",ItemImage:"005.jpg",ItemDescription:"005image",ItemLank:1}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test006",ItemImage:"006.jpg",ItemDescription:"006image",ItemLank:2}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test007",ItemImage:"007.jpg",ItemDescription:"007image",ItemLank:5}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test008",ItemImage:"008.jpg",ItemDescription:"008image",ItemLank:2}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test009",ItemImage:"009.jpg",ItemDescription:"009image",ItemLank:4}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test010",ItemImage:"0010.jpg",ItemDescription:"010image",ItemLank:2}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test011",ItemImage:"0011.jpg",ItemDescription:"011image",ItemLank:3}).InsertExecute()
+   moulde.Insert(Items{ItemName:"test012",ItemImage:"0012.jpg",ItemDescription:"012image",ItemLank:2}).InsertExecute()
    
    // TEST CODE
 }

@@ -14,6 +14,9 @@ func init() {
 type ItemForm struct {
   ItemImage   string
   AltMessage  string
+  ItemId      int
+  ItemLank    []int
+  ItemLankRetain    []int
 }
 
 type  ShopForm struct{
@@ -48,6 +51,6 @@ func initShopForm (ctx *appcontext.AppContext, shopform *ShopForm) {
    shopform.ItemList = make([]ItemForm,len(itemList))
    for i:=0 ;i<len(itemList) ;i++ {
      item := itemList[i].(Items)
-     shopform.ItemList[i] = ItemForm {ItemImage: item.ItemImage, AltMessage:item.ItemDescription }
+     shopform.ItemList[i] = ItemForm {ItemId:item.ItemId , ItemImage: item.ItemImage, AltMessage:item.ItemDescription ,ItemLank : make([]int,item.ItemLank),ItemLankRetain :make([]int,5 - item.ItemLank) }
    }
 }

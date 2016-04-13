@@ -18,14 +18,17 @@ func main() {
    var appCon appcontext.AppContext = appcontext.AppContext{ ConfigContext :  &config}
    app := webapp.New(&appCon,configMap)
    
-   indexCtrl := &IndexControl{}
-   shopListControl := &ShopListControl{}
+   indexCtrl := &IndexController{}
+   shopListControl := &ShopListController{}
    registControl := &RegistController{}
+   addCartcontrol := &AddCartController{}
+   
    app.AddRoute("/login",indexCtrl,"Index",IndexForm{})
    app.AddRoute("/logout",indexCtrl,"Logout",IndexForm{})
    app.AddRoute("/loging",indexCtrl,"Login",IndexForm{})
    app.AddRoute("/regist",registControl,"Index",RegistForm{})
    app.AddRoute("/registing",registControl,"Regist",RegistForm{})
+   app.AddRoute("/addcart",addCartcontrol,"Index",AddCartForm{})
    app.AddRoute("/index",shopListControl,"ShopList",ShopForm{})
    app.InitDB()
    dbmoudle := app.GetDefaultDB()

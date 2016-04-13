@@ -17,16 +17,16 @@ type  IndexForm struct{
    Password string
 }
 
-type IndexControl struct {
+type IndexController struct {
   controller.Controller
 }
 
 
-func (this *IndexControl) Index(ctx *appcontext.AppContext,form interface{}){
+func (this *IndexController) Index(ctx *appcontext.AppContext,form interface{}){
 
 }
 
-func (this *IndexControl) Logout(ctx *appcontext.AppContext,form interface{}){
+func (this *IndexController) Logout(ctx *appcontext.AppContext,form interface{}){
    request := ctx.Request.HttpRequest
    response := ctx.Writer.HttpResponseWriter
    var sess session.Session = session.NewSession(request , *response)
@@ -35,7 +35,7 @@ func (this *IndexControl) Logout(ctx *appcontext.AppContext,form interface{}){
 }
 
 
-func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
+func (this *IndexController) Login(ctx *appcontext.AppContext,form interface{}){
    indexForm := form.(*IndexForm)
    dbtran := ctx.GetDefaultDBTransaction()
    if userinfo,ok := dbtran.SimpleQuery(UserInfo{Email:indexForm.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {

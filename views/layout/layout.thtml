@@ -18,7 +18,7 @@
     <script src="/resource/js/jquery.js"></script>
     <script src="/resource/js/bootstrap.min.js"></script>
     <script src="/resource/js/getads.js"></script>
-
+    <script src="/resource/js/common.js"></script>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
