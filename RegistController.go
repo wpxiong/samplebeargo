@@ -42,7 +42,7 @@ func (this *RegistController) validateRegister (ctx *appcontext.AppContext,form 
    
    if result {
        dbtran := ctx.GetDefaultDBTransaction()
-       if _,ok := dbtran.SimpleQuery(User{Email:registform.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {
+       if _,ok := dbtran.SimpleQuery(UserInfo{Email:registform.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {
            ctx.SetError("EmailError","This Email has been registed")
            result = false
        }
@@ -70,7 +70,7 @@ func (this *RegistController) Index(ctx *appcontext.AppContext,form interface{})
 func (this *RegistController) Regist(ctx *appcontext.AppContext,form interface{}){
    registform :=  form.(*RegistForm)
    dbtran := ctx.GetDefaultDBTransaction()
-   dbtran.Insert(User{Email:registform.Email,Password:registform.Password,UserName:registform.Username}).InsertExecute()
+   dbtran.Insert(UserInfo{Email:registform.Email,Password:registform.Password,UserName:registform.Username}).InsertExecute()
    render.RedirectTo(ctx,"/login")
 }
 

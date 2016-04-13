@@ -13,11 +13,11 @@ type Orders struct {
   OrdersFinishedDate  time.Time
   AddressId   int `notnull:"true"`
   AddressInfo  Address `relation_type:"manytoone" column_name:"AddressId" referenced_column_name:"AddressId"`
-  UserInfo   User `relation_type:"manytoone" column_name:"UserId" referenced_column_name:"UserId"`
+  UserInfo   UserInfo `relation_type:"manytoone" column_name:"UserId" referenced_column_name:"UserId"`
 }
 
 
-type User struct {
+type UserInfo struct {
   UserId int `id:"true"   auto_increment:"true"`
   UserName    string  `notnull:"true"     length:"128" `
   Email   string  `notnull:"true"     length:"128" `
@@ -59,7 +59,7 @@ type OrdersItem struct {
 
 
 func InitMoudle(moulde *moudle.Moudle) {
-   moulde.AddTable(User{})
+   moulde.AddTable(UserInfo{})
    moulde.AddTable(Address{})
    moulde.AddTable(Orders{})
    moulde.AddTable(OrdersItem{})
@@ -68,9 +68,9 @@ func InitMoudle(moulde *moudle.Moudle) {
    moulde.InitialDB(true)
     
    //TEST CODE
-   moulde.Insert(User{Email:"wpxiong@gmail.com",Password:"1234567",UserName:"花田 太郎"}).InsertExecute()
-   moulde.Insert(User{Email:"test1@gmail.com",Password:"1234567",UserName:"花田 次郎"}).InsertExecute()
-   moulde.Insert(User{Email:"test2@gmail.com",Password:"1234567",UserName:"花田 三郎"}).InsertExecute()
+   moulde.Insert(UserInfo{Email:"wpxiong@gmail.com",Password:"1234567",UserName:"花田 太郎"}).InsertExecute()
+   moulde.Insert(UserInfo{Email:"test1@gmail.com",Password:"1234567",UserName:"花田 次郎"}).InsertExecute()
+   moulde.Insert(UserInfo{Email:"test2@gmail.com",Password:"1234567",UserName:"花田 三郎"}).InsertExecute()
    
    moulde.Insert(Items{ItemName:"test001",ItemImage:"001.jpg",ItemDescription:"001image"}).InsertExecute()
    moulde.Insert(Items{ItemName:"test002",ItemImage:"002.jpg",ItemDescription:"002image"}).InsertExecute()

@@ -38,8 +38,8 @@ func (this *IndexControl) Logout(ctx *appcontext.AppContext,form interface{}){
 func (this *IndexControl) Login(ctx *appcontext.AppContext,form interface{}){
    indexForm := form.(*IndexForm)
    dbtran := ctx.GetDefaultDBTransaction()
-   if userinfo,ok := dbtran.SimpleQuery(User{Email:indexForm.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {
-      user := userinfo.(User)
+   if userinfo,ok := dbtran.SimpleQuery(UserInfo{Email:indexForm.Email}).WhereAnd([]string{"Email"}).FetchOne(); ok {
+      user := userinfo.(UserInfo)
       if user.Password == indexForm.Password {
          request := ctx.Request.HttpRequest
          response := ctx.Writer.HttpResponseWriter

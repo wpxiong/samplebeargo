@@ -7,11 +7,6 @@ import (
   "runtime"
 )
 
-type UserInfo struct {
-  UserId int `id:"true"   auto_increment:"true"`
-  Email   string  `notnull:"true"     length:"128" `
-  Password  string  `notnull:"true"     length:"128" `
-}
 
 func main() {
    log.InitLogWithLevel("Debug")

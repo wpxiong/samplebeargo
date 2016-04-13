@@ -29,7 +29,7 @@ func (this *CommonController) GetCommonInfo (ctx *appcontext.AppContext,form int
      request := ctx.Request.HttpRequest
      response := ctx.Writer.HttpResponseWriter
      var sess session.Session = session.NewSession(request , *response)
-     var user User = User{}
+     var user UserInfo = UserInfo{}
      shopform := form.(*ShopForm)
      initShopForm(ctx,shopform)
      if sess.GetSessionValue("authuser",&user) {
