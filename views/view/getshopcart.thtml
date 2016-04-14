@@ -1,0 +1,39 @@
+<div class="modal in" id="shopcart" tabindex="-1" role="dialog" aria-hidden="true" style="display:block">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		   <div class="modal-header">
+		     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		      <h4 class="modal-title">Shop Cart</h4>
+		   </div>
+		   <div class="modal-body">
+		        {{range .shopcartlist}}
+				<div class="form-group row" >
+				   <div class="col-sm-2 col-md-4 col-lg-3">
+				     <img  class="img-responsive" src="/resource/img/{{.ImagePath}}">
+				   </div>
+                   <div class="col-sm-4 col-md-8 col-lg-6">
+                     <div class="span2">
+                       <blockquote>
+                         <p style="font-size: 14px; margin-bottom:5px; color: #FA8072;">商品名：{{.ItemName}} </p>
+                         <p style="font-size: 14px; margin-bottom:5px; color: #FA8072;">商品内容：{{.ItemDescription}}</p>
+                         <p style="font-size: 14px; margin-bottom:5px; color: #FA8072;">価格：{{.ItemPrice}}</p>
+                       </blockquote>
+                     </div>
+                   </div>
+                   <div class="btn-group col-sm-2 col-md-4 col-lg-3">
+                     <button class="btn btn-mini btn-primary" type="button">Delete</button>
+                     
+                   </div>
+				</div>
+				{{end}}
+			</div>
+			<div class="modal-footer" style="margin-top:15px;">
+			    <div style="float:right">
+			      <button type="button" class="btn btn-primary" data-dismiss="modal">CONTINUE</button>
+			      <button type="button" class="btn btn-primary" data-loading-text="Submitting...">CHECKOUT</button>
+			    </div>
+			  
+			</div>
+		 </div>
+	 </div>
+</div>

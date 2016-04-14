@@ -13,7 +13,19 @@ function AddToCart() {
        }
      });
 }
-   
+
+function showShopCart() {
+     $.ajax({
+       type: 'GET',
+       url: "/getshopcart",
+       scriptCharset: 'utf-8',
+       success: function(msg){
+           $('#shopcartcontainer').empty();
+           $('#shopcartcontainer').append(msg);
+           $('#shopcart').modal('show');
+       }
+     });
+}
 
 $(document).ready(function() {
    $('#myModal').on('show.bs.modal', function (event) {
@@ -21,5 +33,5 @@ $(document).ready(function() {
       $('#AddButton').attr("data",$(event.relatedTarget).data('itemid'))
    });
    
-
+    
 });

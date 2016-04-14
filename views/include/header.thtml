@@ -19,7 +19,7 @@
          <a href="/regist">Create An Account</a>
        {{ end }}
       </li>
-      <li><a href="#"><img src="/resource/img/cart.png" alt="cart" class="shopcart"></a></li>
+      <li><a href="javascript:showShopCart();"><img src="/resource/img/cart.png" alt="cart" class="shopcart"></a></li>
       <li>
       {{ if .Logined }}
         <a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a>
@@ -30,5 +30,7 @@
     </ul>
   </div>
 </nav>
+</div>
+<div id="shopcartcontainer">
 </div>
 {{end}}

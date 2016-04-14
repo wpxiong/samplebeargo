@@ -4,6 +4,7 @@ import (
   "github.com/wpxiong/beargo/log"
   "github.com/wpxiong/beargo/controller"
   "github.com/wpxiong/beargo/appcontext"
+  "github.com/wpxiong/beargo/session"
 )
 
 func init() {
@@ -16,6 +17,7 @@ type  AddCartForm struct{
    ItemPrice   float32
    ItemDescription  string
    Result  string
+   ImagePath  string
 }
 
 type AddCartController struct {
@@ -41,10 +43,21 @@ func (this *AddCartController) Index(ctx *appcontext.AppContext,form interface{}
   log.Debug(item)
   dbtran.FetchLazyField(&item,[]string{"ItemsOptionList"})
   
+  request := ctx.Request.HttpRequest
+  response := ctx.Writer.HttpResponseWriter
+  var sess session.Session = session.NewSession(request , *response)
+  var formlist []*AddCartForm = make([]*AddCartForm,0)
+  sess.GetSessionValue("shoppingcart",&formlist)
+  
   addcartForm.ItemPrice = item.ItemsOptionList[0].OptionPrice
   addcartForm.ItemName = item.ItemName
   addcartForm.ItemDescription = item.ItemDescription
+  addcartForm.ImagePath  = item.ItemImage
   addcartForm.Result = "ok"
+  formlist = append(formlist,addcartForm)
+  sess.SaveSessionValue("shoppingcart",formlist)
+  
+  log.Debug(formlist)
 }
 
 
