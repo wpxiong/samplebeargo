@@ -9,7 +9,7 @@ function AddToCart() {
        dataType : 'json',
        scriptCharset: 'utf-8',
        success: function(msg){
-          alert( "Data Saved: " + msg );
+          jQuery.parseJSON(msg)
        }
      });
 }

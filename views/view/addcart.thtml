@@ -1,0 +1,1 @@
+{"result" : "{{.Result}}", "ItemId" : {{.ItemId}} ,"ItemName" : "{{.ItemName}}" ,"ItemPrice" : {{.ItemPrice}} ,"ItemDescription" : "{{.ItemDescription}}" }

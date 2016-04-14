@@ -16,6 +16,12 @@
           <div class="clearfix"></div>
         </div>
       </div>
+      <div >
+        <span class="text-primary">商品名： {{.ItemName}}</span>  <span class="text-warning">価格： {{.ItemPrice}}</span>
+      </div>
+      <div style="margin-bottom:15px;" >
+        <span class="text-info">{{.ItemDescription}}</span>
+      </div>
     </div>
   {{end}}
  </div>
