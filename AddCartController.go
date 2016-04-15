@@ -18,6 +18,7 @@ type  AddCartForm struct{
    ItemDescription  string
    Result  string
    ImagePath  string
+   Count   int
 }
 
 type AddCartController struct {
@@ -46,17 +47,21 @@ func (this *AddCartController) Index(ctx *appcontext.AppContext,form interface{}
   request := ctx.Request.HttpRequest
   response := ctx.Writer.HttpResponseWriter
   var sess session.Session = session.NewSession(request , *response)
-  var formlist []*AddCartForm = make([]*AddCartForm,0)
+  var formlist map[int]*AddCartForm = make(map[int]*AddCartForm,0)
   sess.GetSessionValue("shoppingcart",&formlist)
-  
+   
   addcartForm.ItemPrice = item.ItemsOptionList[0].OptionPrice
   addcartForm.ItemName = item.ItemName
   addcartForm.ItemDescription = item.ItemDescription
   addcartForm.ImagePath  = item.ItemImage
   addcartForm.Result = "ok"
-  formlist = append(formlist,addcartForm)
+  if elem,ok := formlist[addcartForm.ItemId]; ok {
+      elem.Count += 1
+  }else {
+      addcartForm.Count = 1
+      formlist[addcartForm.ItemId] = addcartForm
+  }
   sess.SaveSessionValue("shoppingcart",formlist)
-  
   log.Debug(formlist)
 }
 

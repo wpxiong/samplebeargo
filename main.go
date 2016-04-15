@@ -4,7 +4,6 @@ import (
   "github.com/wpxiong/beargo/log"
   "github.com/wpxiong/beargo/webapp"
   "github.com/wpxiong/beargo/appcontext"
-  "github.com/wpxiong/beargo/form"
   "runtime"
 )
 
@@ -32,8 +31,8 @@ func main() {
    app.AddRoute("/registing",registControl,"Regist",RegistForm{})
    app.AddRoute("/addcart",addCartControl,"Index",AddCartForm{})
    app.AddRoute("/index",shopListControl,"ShopList",ShopForm{})
-   app.AddRoute("/getshopcart",getshoplistControl,"GetShoppingList",form.BaseForm{})
-   
+   app.AddRoute("/getshopcart",getshoplistControl,"GetShoppingList",ShopCartForm{})
+   app.AddRouteWithViewPath("/shopcart/delete/<itemid:int>",getshoplistControl,"Delete",ShopCartForm{},"/delete")
    app.InitDB()
    dbmoudle := app.GetDefaultDB()
    InitMoudle(dbmoudle)

@@ -21,8 +21,10 @@
                      </div>
                    </div>
                    <div class="btn-group col-sm-2 col-md-4 col-lg-3">
-                     <button class="btn btn-mini btn-primary" type="button">Delete</button>
-                     
+                     <div class="span2">
+                       <button class="btn btn-mini btn-primary" type="button" onClick="deleteFromCart({{.ItemId}},this)">Delete</button>
+                       <p class="countitem" style="font-size: 14px; margin-bottom:5px; color: #FA8072;">項目数：{{.Count}}</p>
+                     </div>
                    </div>
 				</div>
 				{{end}}
